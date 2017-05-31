@@ -14,9 +14,57 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<h1>This Is Heroku Awesome!</h1>
-		<p>This is the sample of a tutorial on <a href="http://scotch.io">scotch.io</a></p>
-		<a href="http://scotch.io/tutorials/" class="btn btn-primary btn-lg">View the Tutorial</a>
+		
+ <h1>  APIs   <h1>
+<p>
+router.route('/district').get(districtctrl.getAll);
+router.route('/district/count').get(districtctrl.count);
+router.route('/district').post(districtctrl.insert);
+router.route('/district/:id').get(districtctrl.get);
+router.route('/district/:id').put(districtctrl.update);
+router.route('/district/:id').delete(districtctrl.delete);
+router.route('/districtw/:id').get(districtctrl.getidw);
+
+
+router.route('/country').get(countryctrl.getAll);
+router.route('/country/count').get(countryctrl.count);
+router.route('/country').post(countryctrl.insert);
+router.route('/country/:id').get(countryctrl.get);
+router.route('/country/:id').put(countryctrl.update);
+router.route('/country/:id').delete(countryctrl.delete);
+
+
+router.route('/companysize').get(companysizectrl.getAll);
+router.route('/companysize/count').get(companysizectrl.count);
+router.route('/companysize').post(companysizectrl.insert);
+router.route('/companysize/:id').get(companysizectrl.get);
+router.route('/companysize/:id').put(companysizectrl.update);
+router.route('/companysize/:id').delete(companysizectrl.delete);
+
+
+
+router.route('/workplace').get(workplacectrl.getAll);
+router.route('/workplace/count').get(workplacectrl.count);
+router.route('/workplace').post(workplacectrl.insert);
+router.route('/workplace/:id').get(workplacectrl.get);
+router.route('/workplace/:id').put(workplacectrl.update);
+router.route('/workplace/:id').delete(workplacectrl.delete);
+var postctrl = require('../controllers/post.controllers.js');
+
+router.route('/post').get(postctrl.getAll);
+router.route('/post/count').get(postctrl.count);
+router.route('/post').post(postctrl.insert);
+router.route('/post/:id').get(postctrl.get);
+router.route('/post/:id').put(postctrl.update);
+router.route('/post/:id').delete(postctrl.delete);
+router.route('/getpost/:id').get(postctrl.getiduser);
+
+
+
+</p>
+
+
+	
 	</div>
 </div>
 	
