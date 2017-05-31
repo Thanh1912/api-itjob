@@ -9,7 +9,7 @@ var open = function() {
 // Use native Node promises
 mongoose.Promise = global.Promise;
 // connect to MongoDB
-//mongodb://<dbuser>:<dbpassword>@ds157971.mlab.com:57971/heroku_v1688jsj
+//mongodb://<dbuser>:<dbpassword>@ds157971.mlab.com:57971/heroku_v1688jsj  process.env.MONGOLAB_URI
 mongoose.connect(process.env.MONGOLAB_URI)
   .then(() =>  console.log('Kết nối thành công!'))
   .catch((err) => console.error(err));
