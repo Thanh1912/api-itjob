@@ -10,7 +10,7 @@ var open = function() {
 mongoose.Promise = global.Promise;
 // connect to MongoDB
 //mongodb://<dbuser>:<dbpassword>@ds157971.mlab.com:57971/heroku_v1688jsj  process.env.MONGOLAB_URI
-mongoose.connect(process.env.MONGOLAB_URI)
+mongoose.connect("mongodb://heroku_v1688jsj:5680b3qqfm9fa3a1rg0n3acnhv@ds157971.mlab.com:57971/heroku_v1688jsj")
   .then(() =>  console.log('Kết nối thành công!'))
   .catch((err) => console.error(err));
 };
