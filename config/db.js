@@ -9,8 +9,9 @@ var open = function() {
 // Use native Node promises
 mongoose.Promise = global.Promise;
 // connect to MongoDB
-//mongodb://<dbuser>:<dbpassword>@ds157971.mlab.com:57971/heroku_v1688jsj  process.env.MONGOLAB_URI
-mongoose.connect("mongodb://heroku_v1688jsj:5680b3qqfm9fa3a1rg0n3acnhv@ds157971.mlab.com:57971/heroku_v1688jsj")
+  //
+  //mongodb://heroku_v1688jsj:5680b3qqfm9fa3a1rg0n3acnhv@ds157971.mlab.com:57971/heroku_v1688jsj
+mongoose.connect('mongodb://localhost:27017/Mean_Job')
   .then(() =>  console.log('Kết nối thành công!'))
   .catch((err) => console.error(err));
 };

@@ -40,6 +40,7 @@ router.route('/nhatuyendung/:id').delete(user_nhatuyendungctrl.delete_ntd);
 router.route('/nhatuyendung/duyet/:id').put(user_nhatuyendungctrl.update_duyet_ntd);
 router.route('/nhatuyendung/kduyet/:id').put(user_nhatuyendungctrl.update_kduyet_ntd);
 router.route('/updatenhatuyendung/:id').put(user_nhatuyendungctrl.update_info_company);
+router.route('/nhatuyendungget/gettop10company/').get(user_nhatuyendungctrl.gettop10);
 
 //keyword
 //  USER -- THANH VIEN DANG KY DANG NHAP
@@ -63,11 +64,14 @@ router.route('/keyword/:id').delete(keywordctrl.delete);
 
 
 var districtctrl = require('../controllers/district.controllers.js');
+var resumectrl = require('../controllers/resume.controllers.js');
 var countryctrl = require('../controllers/country.controllers.js');
 var companysizectrl = require('../controllers/companysize.controllers.js');
 var workplacectrl = require('../controllers/workplace.controllers.js');
 // APIs
 
+
+router.route('/resume').post(resumectrl.insert);
 router.route('/district').get(districtctrl.getAll);
 router.route('/district/count').get(districtctrl.count);
 router.route('/district').post(districtctrl.insert);
@@ -103,17 +107,30 @@ router.route('/workplace/:id').delete(workplacectrl.delete);
 var postctrl = require('../controllers/post.controllers.js');
 
 router.route('/post').get(postctrl.getAll);
+router.route('/gettop10post').get(postctrl.top10post);
+router.route('/getdemo').get(postctrl.getAlldemo);
 router.route('/post/count').get(postctrl.count);
 router.route('/post').post(postctrl.insert);
 router.route('/post/:id').get(postctrl.get);
 router.route('/post/:id').put(postctrl.update);
 router.route('/post/:id').delete(postctrl.delete);
 router.route('/getpost/:id').get(postctrl.getiduser);
-
+router.route('/search-job-key').post(postctrl.get_job_key)
+router.route('/search-job-company/:id').get(postctrl.get_job_company)
 //===================UPload================
 
 
-//===================
+// up load cv
+// cap nhat thong tin user
+//get chi tiet job
+//get chi tiet company
+
+// select all job search
+// add list yeu thich job
+// select job
+router.route('/getallnewjob').get(postctrl.getalljobs);
+
+
 
 
 module.exports = router;

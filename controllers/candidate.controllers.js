@@ -8,6 +8,7 @@ module.exports.register =function (req, res, next) {
   var user = new model({
    fullname:req.body.fullname,
     email: req.body.email,
+    profileimage: req.body.profileimage ,
     password: passwordHash.generate(req.body.password)
   });
 
@@ -29,8 +30,8 @@ module.exports.register =function (req, res, next) {
 };
 // user login
 module.exports.login = function (req, res, next) {
-  console.log('dang login'+req.body.email.toLowerCase())
-  model.findOne({email: req.body.email.toLowerCase()}, function (err, doc) {
+  console.log('dang login'+req.body.email)
+  model.findOne({email: req.body.email}, function (err, doc) {
     if (err) {
       return res.status(403).json({
         title: 'There was a problem',

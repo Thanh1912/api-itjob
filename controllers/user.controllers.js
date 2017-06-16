@@ -11,8 +11,8 @@ module.exports.register = function (req, res, next) {
     email: req.body.email,
     password: passwordHash.generate(req.body.password),
     info_recruiter: {
-      namecompany: req.body.namecompany | "",
-      phone: req.body.phone | "",
+      namecompany: req.body.namecompany ,
+      phone: req.body.phone ,
     },
     role: "nhatuyendung"
   });
@@ -34,6 +34,7 @@ module.exports.register = function (req, res, next) {
     })
   })
 };
+
 module.exports.register_admin = function (req, res, next) {
   var nhatuyendung = new model({
     fullname: req.body.fullname,
@@ -63,7 +64,7 @@ module.exports.login = function (req, res, next) {
 
   model.findOne(
 {
-  email:req.body.email.toLowerCase(),
+  email:req.body.email,
       role: 'nhatuyendung',
       "info_recruiter.active" : true
 }
@@ -145,6 +146,14 @@ module.exports.getAll_ntd = function (req, res) {
     if (err) throw err;
     res.json(docs);
   })
+};
+module.exports.gettop10 = function (req, res) {
+  model.find({role:'nhatuyendung'}).sort({ "createddate": 1 }
+
+  ).limit(10).exec(function (err, docs) {
+    if (err) throw err;
+    res.json(docs);
+  });
 };
 // Count all
 module.exports.count_ntd = function (req, res) {
